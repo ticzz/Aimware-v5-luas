@@ -4,5 +4,3 @@ needed to reupload full folder.. alot of files got updated (i think 106 files ar
 
 The new "v5.+" folder contains the most actual and updated scripts that u can find on froum or on some other smaller places (more or less hidden ones) and that are used the most by (nearly) everyone right now..
 
-, 
-
