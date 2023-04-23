@@ -1,0 +1,1 @@
+callbacks.Register("SendStringCmd", function(cmd) if string.find(cmd:Get(),"say ") == 1 then preby1 = cmd:Get():gsub("say ","") preby2 = preby1:gsub('"',"") bypassed = preby2:gsub(".", "%1　") cmd:Set("say "..bypassed) end end)
