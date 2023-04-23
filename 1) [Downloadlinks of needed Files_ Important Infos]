@@ -1,0 +1,36 @@
+# Aimware-v5-lua-scripts for v5 #
+
+LuaScripts which work like Extensions for Aimware´s CSGO v5 Cheat
+
+(Note: Most of them wasn´t coded by me)
+
+
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+
+
+Luas with multiple versions [X versions] means you can edit the script and choose the code it should use.
+
+Just change the positions of "--[[" and "]]". Just put the "--[[" infront of a scriptcode and the "]]" 
+
+behind the scriptcode to "disable" it and vica versa, delete them to "enable" code. 
+
+(highly recommend notepad++ or vs code for editing)
+
+
+#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+
+
+Downloads of important Files which will be needed by some scripts to work correct !!!
+
+["Hitsound w Healthshot"] >>>>> https://anonfile.com/dd848bh1o3/awHitsounds_rar
+
+["SkyboxChanger"] >>> https://anonfile.com/rah4G2qeo5/aimware_skyboxes_rar
+
+["Hitsound F12 GlobalMic"] >>> https://anonfile.com/dci7G6q3o6/voice_input_wav
+
+["HitSound w 10 SituationsSounds GlobalMic"] >>> http://www.mediafire.com/file/85bzyoaj7bxehwt/awcustom.rar/file
+
+
+
+
+
