@@ -10,7 +10,8 @@ The new "v5.+" folder contains the most actual and updated scripts that u can fi
 have fun :D
 
 
-SideNote: 
+SideNote:
+
 When i reuploaded it i was too lazy to sortout some luas that are outdated or broken so i just put the whole folder.
 And i still didnt remove the files from my folder because some of them contain functions u need/could use in your own scripts
 or other ones are well documantated and everything got explaint by comments so that u can learn how things working..
