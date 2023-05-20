@@ -716,22 +716,8 @@ client.AllowListener("round_end");
 
 -- Callbacks section
 callbacks.Register("Draw", "himawari_sound_esp_draw", onDraw);
-callbacks.Register( 'FireGameEvent', 'himawari_sound_esp_gameevent', onGameEvent )
-
-
-
-
-
-;
-
-
-
-
-
-
-
+callbacks.Register( 'FireGameEvent', 'himawari_sound_esp_gameevent', onGameEvent );
 
 --***********************************************--
 
 print("♥♥♥ " .. GetScriptName() .. " loaded without Errors ♥♥♥")
-
