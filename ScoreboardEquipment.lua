@@ -1,4 +1,3 @@
---©thekorol
 local console_handlers = {}
 function string:split(sep)
 	local sep, fields = sep or ":", {}
@@ -94,9 +93,27 @@ local weapon_type_int = {
 	[521] = 0,
 	[522] = 0,
 	[523] = 0,
-	[525] = 0
+	[525] = 0,
 }
-local wep_type = {taser = 0, knife = 0, pistol = 1, smg = 2, rifle = 3, shotgun = 4, sniperrifle = 5, machinegun = 6, c4 = 7, grenade = 9, stackableitem = 11, fists = 12, breachcharge = 13, bumpmine = 14, tablet = 15, melee = 16, equipment = 19}
+local wep_type = {
+	taser = 0,
+	knife = 0,
+	pistol = 1,
+	smg = 2,
+	rifle = 3,
+	shotgun = 4,
+	sniperrifle = 5,
+	machinegun = 6,
+	c4 = 7,
+	grenade = 9,
+	stackableitem = 11,
+	fists = 12,
+	breachcharge = 13,
+	bumpmine = 14,
+	tablet = 15,
+	melee = 16,
+	equipment = 19,
+}
 local function getWeaponType(wepIdx)
 	local typeInt = weapon_type_int[tonumber(wepIdx)]
 	for index, value in pairs(wep_type) do
@@ -359,7 +376,7 @@ local Client = {
 	end,
 	register_handler = function(callback)
 		table.insert(handlers, callback)
-	end
+	end,
 }
 register_console_handler("!panoCall", function(args)
 	Client.receive(args)
@@ -384,19 +401,19 @@ Client.register_handler(function(msg)
 		return true
 	end
 end)
-local enhancement = gui.Reference("Misc", "Enhancement", "Appearance")
-local hudweapon_enable = gui.Checkbox(enhancement, "hudweapon.enabled", "Display equipment on scoreboard", false)
-local menu = {filter = gui.Multibox(enhancement, "Weapon filter")}
-local itemList = {"Primary", "Secondary", "Knife/Taser", "Grenades", "C4", "Defuser", "Armor", "Other"}
+local rb_ref = gui.Reference("Visuals")
+local tab = gui.Tab(rb_ref, "hudweapon", "Scoreboard Add-ons")
+local hudweapon_enable = gui.Checkbox(tab, "hudweapon.enabled", "Display Weapon -> Scoreboard", 0)
+local menu = { filter = gui.Multibox(tab, "Weapon filter") }
+local itemList = { "Primary", "Secondary", "Knife/Taser", "Grenades", "C4", "Defuser", "Armor", "Other" }
 for index, value in ipairs(itemList) do
 	menu["item_" .. index] = gui.Checkbox(menu.filter, "hudweapon.item_" .. index, value, false)
 end
-local hudweapon_color = gui.ColorPicker(enhancement, "hudweapon.color", "Blur color", 136, 71, 255, 255)
+local hudweapon_color = gui.ColorPicker(tab, "hudweapon.color", "Blur color around WeaponIcons", 136, 71, 255, 255)
+
 local player_weapons = {}
-for i = 0, 64 do
-	player_weapons[i] = {}
-end
-gui.Button(enhancement, "Clear equipments data", function()
+
+gui.Button(tab, "Clear equipments data", function()
 	for i = 0, 64 do
 		player_weapons[i] = {}
 	end
@@ -404,7 +421,13 @@ end)
 local function filter_weapon(wepList)
 	for index, value in ipairs(wepList) do
 		local wepType = getWeaponType(value)
-		if wepType == "smg" or wepType == "rifle" or wepType == "shotgun" or wepType == "sniperrifle" or wepType == "machinegun" then
+		if
+			wepType == "smg"
+			or wepType == "rifle"
+			or wepType == "shotgun"
+			or wepType == "sniperrifle"
+			or wepType == "machinegun"
+		then
 			if not menu.item_1:GetValue() then
 				table.remove(wepList, index)
 			end
@@ -488,7 +511,7 @@ end
 
 local lastUpdate = 0
 callbacks.Register("Draw", "hud_weapon_render", function()
-	if entities.GetLocalPlayer() and hudweapon_enable:GetValue() then
+	if hudweapon_enable:GetValue() and entities.GetLocalPlayer() then
 		local player_resource = entities.GetPlayerResources()
 		local currentUpdatePlayer = globals.FrameCount() % 16
 		if currentUpdatePlayer ~= lastUpdate then
@@ -498,8 +521,7 @@ callbacks.Register("Draw", "hud_weapon_render", function()
 				local playerInfo = client.GetPlayerInfo(forced_index)
 				if playerInfo and not playerInfo.IsGOTV then
 					local player_ent = entities.GetByIndex(forced_index)
-					if not player_ent then return
-					elseif player_ent and not player_ent:IsDormant() then
+					if player_ent and not player_ent:IsDormant() then
 						local current_player_data = {}
 						local active_weapon = player_ent:GetWeaponID()
 						if active_weapon ~= nil then
@@ -507,7 +529,8 @@ callbacks.Register("Draw", "hud_weapon_render", function()
 								table.insert(current_player_data, "55")
 							end
 							for slot = 0, 63 do
-								local weapon_ent = player_ent:GetPropEntity("m_hMyWeapons", string.format("%0.3d", slot))
+								local weapon_ent =
+									player_ent:GetPropEntity("m_hMyWeapons", string.format("%0.3d", slot))
 								if weapon_ent ~= nil then
 									local wep_id = weapon_ent:GetWeaponID()
 									if wep_id then
@@ -523,16 +546,28 @@ callbacks.Register("Draw", "hud_weapon_render", function()
 								table.insert(current_player_data, "50")
 							end
 						end
-						Client.updateWeapons(forced_index, {r, g, b}, a, filter_weapon(current_player_data), tostring(active_weapon))
+						Client.updateWeapons(
+							forced_index,
+							{ r, g, b },
+							a,
+							filter_weapon(current_player_data),
+							tostring(active_weapon)
+						)
 						return
 					elseif player_weapons[forced_index] and #player_weapons[forced_index] > 0 then
-						Client.updateWeapons(forced_index, {r, g, b}, a, filter_weapon(player_weapons[forced_index]), hl[forced_index])
+						Client.updateWeapons(
+							forced_index,
+							{ r, g, b },
+							a,
+							filter_weapon(player_weapons[forced_index]),
+							hl[forced_index]
+						)
 						return
 					elseif player_weapons[forced_index] and #player_weapons[forced_index] == 0 then
-						Client.updateWeapons(player_ent:GetIndex(), {r, g, b}, a, {"dead"}, "dead")
+						Client.updateWeapons(player_ent:GetIndex(), { r, g, b }, a, { "dead" }, "dead")
 					end
 					if not player_ent:IsAlive() then
-						Client.updateWeapons(player_ent:GetIndex(), {r, g, b}, a, {"dead"}, "dead")
+						Client.updateWeapons(player_ent:GetIndex(), { r, g, b }, a, { "dead" }, "dead")
 					end
 				end
 			end
@@ -555,6 +590,9 @@ client.AllowListener("game_newmap")
 client.AllowListener("round_end")
 client.AllowListener("bomb_dropped")
 callbacks.Register("FireGameEvent", "hud_weapon_events", function(event)
+	if not entities.GetLocalPlayer() then
+		return
+	end
 	local eventName = event:GetName()
 	if eventName then
 		if eventName == "item_equip" then
@@ -568,7 +606,13 @@ callbacks.Register("FireGameEvent", "hud_weapon_events", function(event)
 		elseif eventName == "player_death" then
 			if player_weapons then
 				player_weapons[entities.GetByUserID(event:GetInt("userid")):GetIndex()] = {}
-				Client.updateWeapons(entities.GetByUserID(event:GetInt("userid")):GetIndex(), {0, 0, 0}, 0, {"dead"}, "dead")
+				Client.updateWeapons(
+					entities.GetByUserID(event:GetInt("userid")):GetIndex(),
+					{ 0, 0, 0 },
+					0,
+					{ "dead" },
+					"dead"
+				)
 			end
 		elseif eventName == "round_end" or eventName == "bomb_dropped" then
 			for k, v in pairs(player_weapons) do
@@ -577,10 +621,7 @@ callbacks.Register("FireGameEvent", "hud_weapon_events", function(event)
 		end
 	end
 end)
---©thekorol
-
 
 --***********************************************--
 
 print("♥♥♥ " .. GetScriptName() .. " loaded without Errors ♥♥♥")
-
