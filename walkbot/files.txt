@@ -1,0 +1,17 @@
+modules\aimbot.lua
+modules\autoqueue.lua
+modules\config.lua
+modules\debug.lua
+modules\gui.lua
+modules\map_manager.lua
+modules\memory.lua
+modules\mesh_manager.lua
+modules\mesh_navigation.lua
+modules\movement.lua
+modules\objective_use.lua
+modules\objective.lua
+modules\sourcenav.lua
+modules\struct.lua
+walkbot.lua
+version.txt
+json.lua

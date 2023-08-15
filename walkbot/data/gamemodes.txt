@@ -1,0 +1,120 @@
+[
+	{
+		"gametype": "classic",
+		"gameModes": [
+			{
+				"gamemode": "casual",
+				"maps": [
+					"mg_casualsigma",
+					"mg_casualdelta",
+					"mg_dust247",
+					"mg_hostage"
+				]
+			},
+			{
+				"gamemode": "competitive",
+				"maps": [
+					"mg_de_mirage",
+					"mg_de_inferno",
+					"mg_de_overpass",
+					"mg_de_vertigo",
+					"mg_de_nuke",
+					"mg_de_train",
+					"mg_de_dust2",
+					"mg_de_cache",
+					"mg_de_anubis",
+					"mg_de_chlorine",
+					"mg_de_mirage_scrimmagemap",
+					"mg_cs_agency",
+					"mg_cs_office"
+				]
+			},
+			{
+				"gamemode": "scrimcomp2v2",
+				"maps": [
+					"mg_de_vertigo",
+					"mg_de_inferno",
+					"mg_de_overpass",
+					"mg_de_cbble",
+					"mg_de_train",
+					"mg_de_shortnuke",
+					"mg_de_shortdust",
+					"mg_gd_rialto",
+					"mg_de_lake"
+				]
+			},
+			{
+				"gamemode": "scrimcomp5v5",
+				"maps": [
+					"mg_de_mirage",
+					"mg_de_vertigo",
+					"mg_de_inferno",
+					"mg_de_overpass",
+					"mg_de_train",
+					"mg_de_nuke",
+					"mg_de_dust2",
+					"mg_de_cache",
+					"mg_cs_office",
+					"mg_cs_agency"
+				]
+			}
+		]
+	},
+	{
+		"gametype": "gungame",
+		"gameModes": [
+			{
+				"gamemode": "gungameprogressive",
+				"maps": [
+					"mg_armsrace"
+				]
+			},
+			{
+				"gamemode": "gungametrbomb",
+				"maps": [
+					"mg_demolition"
+				]
+			},
+			{
+				"gamemode": "deathmatch",
+				"maps": [
+					"mg_casualsigma",
+					"mg_casualdelta",
+					"mg_dust247",
+					"mg_hostage"
+				]
+			}
+		]
+	},
+	{
+		"gametype": "skirmish",
+		"gameModes": [
+			{
+				"gamemode": "skirmish",
+				"maps": [
+					"mg_skirmish_armsrace",
+					"mg_skirmish_demolition",
+					"mg_skirmish_flyingscoutsman",
+					"mg_skirmish_stabstabzap",
+					"mg_skirmish_triggerdiscipline",
+					"mg_skirmish_headshots",
+					"mg_skirmish_huntergatherers",
+					"mg_skirmish_heavyassaultsuit"
+				]
+			},
+		]
+	},
+	{
+		"gametype": "freeforall",
+		"gameModes": [
+			{
+				"gamemode": "survival",
+				"maps": [
+					"mg_dz_blacksite",
+					"mg_dz_sirocco",
+					"mg_dz_junglety"
+				]
+			},
+		]
+	}
+]
