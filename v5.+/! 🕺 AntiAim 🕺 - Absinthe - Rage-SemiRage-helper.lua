@@ -478,7 +478,7 @@ antibrute_semi_btn:SetWidth(366)
 local desync_mod_gb = gui.Groupbox(tab, "Desync", 225, 125, 397, 200)
 local desync_left_slider = gui.Slider(desync_mod_gb, "desync_left_slider", "Left side", 0, 0, 58)
 local desync_right_slider = gui.Slider(desync_mod_gb, "desync_right_slider", "Right side", 0, 0, 58)
-local desync_roll_slider = gui.Slider(desync_mod_gb, "desync_roll_slider", "Roll Angle", 0, 0, 50); desync_r
+local desync_roll_slider = gui.Slider(desync_mod_gb, "desync_roll_slider", "Roll Angle", 0, 0, 50)
 
 --misc
 local misc_gb = gui.Groupbox(tab, "Misc", 10, 125, 200, 200)
