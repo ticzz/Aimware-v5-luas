@@ -1,8 +1,7 @@
-EDIT: Since Aimware stopped support of CSGO this scripts are not usable anymore. I will leave them here bcs you can still learn how lua works and I don't expect that many changes in the API itself but a lot of stuff of csgo isn't available in CS2 (right now) or due to better anticheat not possible in CS2 anymore... but probably devs can find new ways or workarounds to do these specific things. Time will tell. 
-
 # Aimware-v5-luas 
 
 LuaScripts for Aimware´s CSGO v5. 
 
 I didn't code most of these myself, I ended up just bundling them into one big package. Just fixed some or made small changes in some scripts to better fit my needs.
 
+EDIT: Since Aimware stopped support of CSGO this scripts are not usable anymore. I will leave them here bcs you can still learn how lua works and I don't expect that many changes in the API itself but a lot of stuff of csgo isn't available in CS2 (right now) or due to better anticheat not possible in CS2 anymore... but probably devs can find new ways or workarounds to do these specific things. Time will tell.
